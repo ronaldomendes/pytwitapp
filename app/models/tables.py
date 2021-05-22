@@ -32,3 +32,14 @@ class Post(db.Model):
     def __init__(self, content, user_id):
         self.content = content
         self.user_id = user_id
+
+
+class Follower(db.Model):
+    __tablename__ = 'tb_follower'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('tb_user.id'), nullable=False)
+    follower_id = db.Column(db.Integer, db.ForeignKey('tb_user.id'), nullable=False)
+
+    def __init__(self, user_id, follower_id):
+        self.user_id = user_id
+        self.follower_id = follower_id
