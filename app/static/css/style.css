@@ -22,8 +22,9 @@ a:hover{
     align-items: flex-start;
 }
 
-.nav-item a{
+.nav-item > .nav-link{
     font-size: 24px;
+    font-weight: 700;
 }
 
 .active{
@@ -237,8 +238,9 @@ a:hover{
     font-size: 18px;
 } 
 
-.follow span{
+.follow > span{
     color: #666666;
+    font-weight: 700;
 }
 
 .info h1{

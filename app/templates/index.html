@@ -8,20 +8,77 @@
             <div class="col col-md-6">
                 <div class="content">
                     <img src="../static/images/logo-twitter.png" alt="" width="50" class="logo">
-                    <h1>Login in to Twitter</h1>
-                    <form>
+                    <h1 class="h3">Login in to Twitter</h1>
+                    <form method="POST" onsubmit="return validate(event);">
                         <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                        <input type="text" class="form-control" id="email" name="email" ria-describedby="emailHelp" placeholder="Username / E-mail" required>
                         </div>
                         <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-block btn-radius">Login</button>
+                        <br />
+                        <div class="alert alert-danger" id="error-alert" role="alert" style="display: none;">
+                            Não reconhecemos esta combinação de usuário e senha.
+                        </div>
                     </form>
+                    
                 </div>    
             </div>
         </div>
+        <script type="text/javascript">
+            const baseLoginApiURL = {{config['LOGIN_API_URI'] | tojson}};
+            const loginEndpoint = `${baseLoginApiURL}/login`;
+            function validate(e) {
+                e.preventDefault();
+                console.log("validating...")
+                let emailValue = e.target[0].value;
+                let passwordValue = e.target[1].value;
+                let loginObject = {};
+                let isEmail = false;
+                console.log(emailValue);
+                console.log(passwordValue);
+                let regExp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+                if (emailValue.match(regExp)) {
+                    isEmail = true;
+                    loginObject.email = emailValue;
+                } else {
+                    loginObject.username = emailValue;
+                }
+                loginObject.password = passwordValue;
+                console.log(loginObject);
+                var reqHeaders = new Headers()
+                reqHeaders.append('Content-Type', 'application/json');
+                var reqOptions = {
+                    method: 'POST',
+                    headers: reqHeaders,
+                    body: JSON.stringify(loginObject)
+                }
+                let errorAlert = document.getElementById('error-alert');
+                fetch(loginEndpoint, reqOptions)
+                    .then(res => {
+                        switch(res.status) {
+                            case 200:
+                                errorAlert.style.display = 'none';
+                                window.location.href = "/home";
+                                break;
+                            case 403:
+                                errorAlert.style.display = 'block';
+                                break;
+                            case 404:
+                                errorAlert.style.display = 'block';
+                                break;
+                            default:
+                                break;
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err.status);
+                    });
+                return false
+            }
+        </script>
     </section>
 
 {% include 'components/footer.html' %}
