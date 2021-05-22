@@ -1,0 +1,248 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+ul{
+    list-style: none;
+}
+
+
+a:hover{
+    text-decoration: none;
+}
+
+.navbar, .navbar-expand-lg .navbar-nav{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.navbar-collapse{
+    align-items: flex-start;
+}
+
+.nav-item a{
+    font-size: 24px;
+}
+
+.active{
+    color: #1D9BF0 !important;
+}
+
+
+.btn-radius{
+    border-radius: 20px;
+}
+
+.background-login{
+    height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 50px;
+}
+
+.logo{
+    margin-bottom: 20px;
+}
+
+.bordertb{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* HOME */
+
+.left-sidebar, .right-sidebar{
+    height: 100vh;
+}
+
+.centro{
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+
+.left-sidebar ul li a{
+    font-size: 24px;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+
+
+.right-sidebar{
+    border-left: 1px solid #ccc;
+}
+
+.title{
+    font-weight: 900;
+    font-size: 24px;
+    border-bottom: 1px solid #C4C4C4;
+    margin-left: -15px;
+    margin-right: -15px;
+
+}
+
+.title-user{
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.formulario{
+    clear: both;
+}
+
+.formulario img{
+    float: left;
+    margin-left: 20px;
+}
+
+.formulario form{
+    float: right;
+    width: 85%;
+    margin-bottom: 20px;
+}
+
+.formulario form textarea{
+    border: 0;
+}
+
+.btn-tweet{
+    background: #1D9BF0;
+    font-size: 24px;
+    font-weight: 900;
+    padding: 10px 45px;
+    border-radius: 28px;
+    float: right;
+}
+
+.posts{
+    float: left;
+}
+
+.posts img{
+    margin-right: 20px;
+}
+
+.info .nome{
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.info .data{
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #C4C4C4;
+    margin-left: 12px;
+}
+
+.info .texto{
+    color: #666666;
+    font-size: 18px;
+    display: block;
+}
+
+.border-post{
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.border-user{
+    padding-top: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.border-user .texto{
+    color: #C4C4C4;
+    font-size: 18px;
+}
+
+.title-seguidores{
+    color: #1D9BF0;
+    font-size: 24px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.username{
+    color: #C4C4C4;
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+.seta{
+    float: left;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+
+/* PERFIL */
+
+.box{
+    position: relative;
+    background: #1D9BF0;
+    width: 100%;
+    height: 155px;
+}
+
+.box img{
+    width: 158px;
+    position: absolute;
+    top: 75px;
+    border: 2px solid #fff;
+    left: 20px;
+}
+
+.box button{
+    position: absolute;
+    right: 30px;
+    bottom: -70px;
+    font-size: 24px;
+    background: #1D9BF0;
+    color: #fff;
+    border: 0;
+    padding: 8px 35px;
+    border-radius: 30px;
+
+}
+
+
+.perfil-info{
+    margin-top: 100px;
+    padding: 0 25px;
+}
+
+.follow{
+    display: inline-block;
+    color: #C4C4C4;
+    font-size: 18px;
+} 
+
+.follow span{
+    color: #666666;
+}
+
+.info h1{
+    font-size: 24px;
+    font-weight: bold;
+    margin:0;
+}

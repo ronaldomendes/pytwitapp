@@ -1,0 +1,76 @@
+{% include 'components/header.html' %}
+
+<section class="container-fluid">
+  <div class="row">
+
+    {% include 'components/sidebar-left.html' %}
+
+
+    <div class="col-md-6 centro">
+
+      <h1 class="title mt-5 mb-5 p-3">Página Inicial</h1>
+
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <div class="formulario">
+            <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
+            <form>
+              <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="O que está acontecendo..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-tweet">Tweet</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 border-post">
+          <div class="posts">
+            <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
+          </div>
+
+          <div class="info">
+            <p class="nome">Caio</p>
+            <p class="data">@joao 17/04/21</p>
+            <p class="texto">Lorem ipsum dolor sit amet consectetur</p>
+          </div>
+        </div>
+
+        <div class="col-md-12 border-post">
+          <div class="posts">
+            <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
+          </div>
+
+          <div class="info">
+            <p class="nome">Ronaldo</p>
+            <p class="data">@joao 17/04/21</p>
+            <p class="texto">Lorem ipsum dolor sit amet consectetur</p>
+          </div>
+        </div>
+
+        <div class="col-md-12 border-post">
+          <div class="posts">
+            <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
+          </div>
+
+          <div class="info">
+            <p class="nome">Renan</p>
+            <p class="data">@joao 17/04/21</p>
+            <p class="texto">Lorem ipsum dolor sit amet consectetur</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-3 right-sidebar"></div>
+  </div>
+
+</section>
+
+{% include 'components/footer.html' %}

@@ -1,0 +1,49 @@
+{% include 'components/header.html' %}
+
+<section class="container-fluid">
+  <div class="row">
+
+
+    {% include 'components/sidebar-left.html' %}
+
+
+    <div class="col-md-6 centro">
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="user mt-5 p-3">
+            <a href=""><img src="images/back_arrow.svg" alt="" class="seta"></a>
+            <h1 class="title-user">Guilherme</h1>
+            <p class="username">@guilherme</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 bordertb">
+          <h1 class="title-seguidores">Seguidores</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 border-user">
+          <div class="posts">
+            <img src="../static/images/caio.jpeg" alt="" class="img-fluid rounded-circle" width="62">
+          </div>
+
+          <div class="info">
+            <p class="nome">Caio</p>
+            <p class="texto">@joao</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-3 right-sidebar"></div>
+  </div>
+
+</section>
+
+{% include 'components/footer.html' %}
