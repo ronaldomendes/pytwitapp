@@ -1,8 +1,9 @@
 from app import db
 from app import bcrypt
 
+
 class User(db.Model):
-    __tablename__ = "tbusers"
+    __tablename__ = "tb_user"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(50))
