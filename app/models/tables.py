@@ -26,11 +26,12 @@ class Post(db.Model):
     __tablename__ = 'tb_post'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     content = db.Column(db.String(255), nullable=False)
-    creation_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    creation_date = db.Column(db.DateTime, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('tb_user.id'), nullable=False)
 
     def __init__(self, content, user_id):
         self.content = content
+        self.creation_date = datetime.now()
         self.user_id = user_id
 
 

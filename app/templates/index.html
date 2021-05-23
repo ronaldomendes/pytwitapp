@@ -11,7 +11,7 @@
                     <h1 class="h3">Login in to Twitter</h1>
                     <form method="POST" onsubmit="return validate(event);">
                         <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" ria-describedby="emailHelp" placeholder="Username / E-mail" required>
+                        <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Username / E-mail" required>
                         </div>
                         <div class="form-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
@@ -74,7 +74,7 @@
                         }
                     })
                     .catch(err => {
-                        console.error(err.status);
+                        console.error(err);
                     });
                 return false
             }

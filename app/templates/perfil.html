@@ -8,11 +8,12 @@
 
 
     <div class="col-md-6 perfil centro">
-
+      {% if userdata %}
+      {% for i in userdata %}
       <div class="row">
         <div class="col-md-12">
           <div class="user mt-5 p-3">
-            <h1 class="title-user">Guilherme Piovesan</h1>
+            <h1 class="title-user">{{ i.name }}</h1>
           </div>
         </div>
       </div>
@@ -26,8 +27,10 @@
           </div>
 
           <div class="info perfil-info">
-            <h1>Guilherme Piovesan</h1>
-            <p style="color: #C4C4C4;">@guipiovesan</p>
+            <h1>{{ i.name }}</h1>
+            <p style="color: #C4C4C4;">@{{ i.username }}</p>
+            {% endfor %}
+            {% endif %}
 
             <p class="follow">
               <span>2</span>
@@ -42,39 +45,20 @@
 
       <div class="row">
         <div class="col-md-12 border-post">
+        {% if result %}
+        {% for i in result %}
           <div class="posts">
             <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
           </div>
 
           <div class="info">
-            <p class="nome">Guilherme Piovesan</p>
-            <p class="data">@guipiovesan | 17/05/21</p>
-            <p class="texto">Ansiosíssimo #E32021</p>
+            <p class="nome">{{ i.name }}</p>
+            <p class="data">@{{ i.username }} | {{ i.creation_date }}</p>
+            <p class="texto">{{ i.content }}</p>
           </div>
+        {% endfor %}
+        {% endif %}
         </div>
-        <div class="col-md-12 border-post">
-          <div class="posts">
-            <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
-          </div>
-
-          <div class="info">
-            <p class="nome">Guilherme Piovesan</p>
-            <p class="data">@guipiovesan | 17/05/21</p>
-            <p class="texto">Ansiosíssimo #E32021</p>
-          </div>
-        </div>
-        <div class="col-md-12 border-post">
-          <div class="posts">
-            <img src="../static/images/saulo.jpeg" alt="" class="img-fluid rounded-circle" width="62">
-          </div>
-
-          <div class="info">
-            <p class="nome">Guilherme Piovesan</p>
-            <p class="data">@guipiovesan | 17/05/21</p>
-            <p class="texto">Ansiosíssimo #E32021</p>
-          </div>
-        </div>
-
       </div>
 
     </div>
