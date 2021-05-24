@@ -14,8 +14,10 @@ def index():
     return Response(status=403, headers=headers)
 
 
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['POST', 'OPTIONS'])
 def register():
+    if request.method == "OPTIONS":  # CORS treatment
+        return _build_cors_prelight_response()
     headers = Headers()
     headers.add('Content-Type', 'application/json')
     login_obj = request.json
@@ -44,7 +46,7 @@ def register():
 
 @app.route('/login', methods=['POST', 'OPTIONS'])
 def login():
-    if request.method is "OPTIONS":  # CORS treatment
+    if request.method == "OPTIONS":  # CORS treatment
         return _build_cors_prelight_response()
     headers = Headers()
     headers.add('Content-Type', 'application/json')
@@ -77,7 +79,7 @@ def login():
 
 
 def validateuserdata(userData: dict, endpoint: str):
-    if endpoint is 'register':
+    if endpoint == 'register':
         try:
             username_req = userData['username']
             password_req = userData['password']
@@ -88,7 +90,7 @@ def validateuserdata(userData: dict, endpoint: str):
             return True
         except KeyError:
             return False
-    elif endpoint is 'login':
+    elif endpoint == 'login':
         try:
             if "email" in userData and "password" in userData:
                 print("Checking object...")
