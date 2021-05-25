@@ -6,10 +6,10 @@ from app import db, bcrypt
 class User(db.Model):
     __tablename__ = 'tb_user'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(120), nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120))
+    email = db.Column(db.String(120), unique=True)
     username = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(255), nullable=False)
+    password = db.Column(db.String(255))
 
     def __init__(self, name, email, username, password):
         self.name = name.title()
