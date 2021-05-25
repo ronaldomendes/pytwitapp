@@ -11,8 +11,9 @@ def index():
 
 @app.route("/home", methods=['POST'])
 def home():
-    # TODO id do usuario esta chumbado para teste precisa remover
-    new_post = Post(request.form['content'], 1)
+    result = db.engine.execute('SELECT id FROM tb_user WHERE username = :user;', {'user': request.form['username']})
+    user = [x[0] for x in result][0]
+    new_post = Post(request.form['content'], user)
     db.session.add(new_post)
     db.session.commit()
     return render_template("home.html")
@@ -21,7 +22,8 @@ def home():
 @app.route("/home", methods=['GET'])
 def show_all_posts():
     # TODO falta corrigir o bug apos inserir um novo post, nao esta carregando direto
-    result = db.engine.execute("""SELECT p.*, u.* FROM tb_post p JOIN tb_user u ON p.user_id = u.id; """)
+    result = db.engine.execute(
+        """SELECT p.*, u.* FROM tb_post p JOIN tb_user u ON p.user_id = u.id ORDER BY p.creation_date DESC; """)
     return render_template("home.html", result=result)
 
 

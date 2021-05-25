@@ -60,6 +60,7 @@
                     .then(res => {
                         switch(res.status) {
                             case 200:
+                                localStorage.setItem('user', emailValue)
                                 errorAlert.style.display = 'none';
                                 window.location.href = "/home";
                                 break;
